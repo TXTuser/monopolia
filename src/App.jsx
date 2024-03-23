@@ -13,7 +13,7 @@ function App() {
               <div className="card">
                 <span className="color-card"></span>
                 <div className="card-info">
-                  <h2 className="city">Житная Ул.</h2>
+                  <h2 className="city">Ул. Арбат</h2>
                   <h4>Рента с участка</h4>
                   <ul>
                     <li>
@@ -107,7 +107,7 @@ function App() {
               <div className="card">
                 <span className="color-card"></span>
                 <div className="card-info">
-                  <h2 className="city">asdadadadfvdfgk;fdg;l Ул.</h2>
+                  <h2 className="city">Нагатинская Ул.</h2>
                   <h4>Рента с участка</h4>
                   <ul>
                     <li>
