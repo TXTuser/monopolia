@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 * {
+  font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -31,7 +34,7 @@ a {
 }
 
 .game-info {
-  background-color: pink;
+  background-color: #d6b5d0;
   flex: 1;
 }
 
@@ -40,7 +43,7 @@ a {
   position: absolute;
   left: 0;
   top: 40px;
-  background-color: green;
+  background-color: #f9f0e6;
   border: 1px solid black;
   z-index: 5;
 }
@@ -48,6 +51,10 @@ a {
 ol a {
   display: inline-block;
   line-height: 40px;
+}
+
+.player-name {
+  font-size: 20px;
 }
 
 ol li {
@@ -66,6 +73,8 @@ ol li:hover nav {
 
 .card {
 position: relative;
+margin: 0 auto;
+display: flex;
 }
 
 .color-card {
@@ -73,6 +82,8 @@ position: relative;
   width: 50px;
   height: 50px;
   display: inline-block;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 .card-info {
@@ -81,12 +92,20 @@ position: relative;
   top: 50px;
   position: absolute;
   width: 300px;
-  background-color: rgb(120, 120, 245);
+  background-color: #d1a276;
   border: 1px solid black;
   border-radius: 5px;
   z-index: 6;
 }
 
+.priceforhome {
+  border-top: 1px solid black;
+}
+
 .card:hover .card-info{
   display: block;
+}
+
+.monopoly-rent {
+  
 }
