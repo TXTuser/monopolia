@@ -31,6 +31,7 @@ a {
   width: 5%;
   bottom: 0;
   transform: translate(-50%, -50%);
+  transition: 0.3s;
 }
 
 .game-info {
@@ -119,4 +120,71 @@ display: flex;
 
 #dices img {
   width: 65px;
+}
+
+/* PopUp */
+
+.popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+}
+
+.popUp form {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.217);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.173);
+}
+
+.popUp form h1 {
+  margin-bottom: 10px;
+}
+
+.streetName {
+  margin: 10px 0 10px 0;
+}
+
+.streetPrice {
+  margin: 10px 0 10px 0;
+}
+
+.popUpBtn {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.popUpBtn button {
+  border: none;
+  border-radius: 10px;
+  width: 150px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.popUpBtn button:first-child {
+  background-color: #5cb65e;
+}
+
+.popUpBtn button:last-child {
+  background-color: #eb5d62;
+}
+
+.popUpBtn button:hover:first-child {
+  box-shadow: 0 0 10px #5cb65e;
+}
+
+.popUpBtn button:hover:last-child {
+  box-shadow: 0 0 10px #eb5d62;
 }

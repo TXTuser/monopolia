@@ -1,3 +1,6 @@
+// @ts-ignore
+import PopUp from './components/Modals/PopUp';
+
 import map from "./img/map.svg";
 import cat from "./img/blackcat.png";
 import dice1 from "./img/dice1.png";
@@ -14,20 +17,49 @@ import { useEffect, useState } from "react";
 function App() {
   const [cards, setCards] = useState(cardsDB);
   const [users, setUsers] = useState(usersDB);
-  const [steps, setSteps] = useState(40);
-  const [stepsRight, setStepsRight] = useState(11);
+  const [steps, setSteps] = useState(0);
+  const [currentSteps, setCurrentSteps] = useState(0);
+  const [stepsRight, setStepsRight] = useState(0);
   const [stepsBottom, setStepsBottom] = useState(0);
-  const [numDice, setNumDice] = useState(10)
-  const [dices, setDices] = useState([eval("dice" + Math.floor(Math.random() * 6 + 1)),eval("dice" + Math.floor(Math.random() * 6 + 1))])
-  const [diceImages, setDiceImages] = useState([dice1,dice2,dice3,dice4,dice5,dice6])
+  const [numDice, setNumDice] = useState(10);
+  const [popUpShow,setPopUpShow] = useState(false)
+  const [dices, setDices] = useState([
+    Math.floor(Math.random() * 6),
+    Math.floor(Math.random() * 6),
+  ]);
+  const [diceImages, setDiceImages] = useState([
+    dice1,
+    dice2,
+    dice3,
+    dice4,
+    dice5,
+    dice6,
+  ]);
   useEffect(() => {
+    if(currentSteps != steps) {
+      setTimeout(() => {
+        setSteps(s=> s + 1);
+      }, 300);
+    } else if(steps != 0) {
+      setPopUpShow(true)
+    }
     getRight();
     getBottom();
-    diceRoll();
-  }, []);
+  }, [steps, currentSteps]);
   function diceRoll() {
-    let random = Math.floor(Math.random() * 6 + 1);
-    let random2 = Math.floor(Math.random() * 6 + 1);
+    let random = Math.floor(Math.random() * 6);
+    let random2 = Math.floor(Math.random() * 6);
+    setDices([random, random2]);
+    setCurrentSteps(steps + random + random2 + 2);
+    // let currentSteps = s + random + random2 + 2;
+    if(currentSteps == steps) {
+    }
+    // setSteps((s) => {
+    //   if(nextSteps >= 40) {
+    //     nextSteps = nextSteps - 40
+    //   }
+    //   return nextSteps;
+    // });
   }
 
   function getRight() {
@@ -116,11 +148,12 @@ function App() {
             </li>
           ))}
         </ol>
+        <p>{steps}</p>
       </div>
       <div className="container">
         <div id="dices" onClick={() => diceRoll()}>
-          <img src={diceImages[0]} alt="" />
-          <img src={diceImages[1]} alt="" />
+          <img src={diceImages[dices[0]]} alt="" />
+          <img src={diceImages[dices[1]]} alt="" />
         </div>
         <img src={map} alt="" className="map" />
         <img
@@ -133,6 +166,8 @@ function App() {
           }}
         />
       </div>
+
+      <PopUp popUpShow={popUpShow}></PopUp> 
     </div>
   );
 }

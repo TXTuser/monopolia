@@ -63,6 +63,22 @@ const cardsDB = [
     // pledge:,
     // repayment:,
   },
+  {
+    id:4,
+    name: "Первая Парковая Ул.",
+    rent:30,
+    monopolyRent:90,
+    oneHouse:200,
+    twoHouse:600,
+    threeHouse:1400,
+    fourHouse:1700,
+    hotel:2000,
+    priceForHouse:200,
+    priceForHotel:200,
+    color:"#C3E3EB",
+    // pledge:,
+    // repayment:,
+  },
 ];
 
 let usersDB = [
