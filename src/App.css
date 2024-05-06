@@ -125,6 +125,7 @@ display: flex;
 /* PopUp */
 
 .popUp {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -136,6 +137,7 @@ display: flex;
 }
 
 .popUp form {
+  max-width: 700px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.217);
   border-radius: 10px;
@@ -187,4 +189,16 @@ display: flex;
 
 .popUpBtn button:hover:last-child {
   box-shadow: 0 0 10px #eb5d62;
+}
+
+/* chance */
+
+.chances {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chance {
+  width: 50%;
+  /* background-image: ; */
 }
