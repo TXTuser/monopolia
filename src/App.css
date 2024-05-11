@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 * {
   font-family: "Lato", sans-serif;
@@ -73,9 +73,9 @@ ol li:hover nav {
 }
 
 .card {
-position: relative;
-margin: 0 auto;
-display: flex;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
 }
 
 .color-card {
@@ -103,7 +103,7 @@ display: flex;
   border-top: 1px solid black;
 }
 
-.card:hover .card-info{
+.card:hover .card-info {
   display: block;
 }
 
@@ -193,12 +193,61 @@ display: flex;
 
 /* chance */
 
-.chances {
+.chests {
   display: flex;
   flex-wrap: wrap;
+  gap: 6px;
 }
 
-.chance {
-  width: 50%;
-  /* background-image: ; */
+.chest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(50% - 3px);
+  height: 150px;
+  text-align: center;
+  border-radius: 15px;
+  background-image: url(/src/img/chest-icon.png);
+  background-size: contain;
+  background-position: center;
+  transition: 0.5s;
+  font-size: 20px;
+  color: white;
+  box-shadow: 0 0 15px rgba(92, 160, 208, 0.6);
+  /* border: 1px solid #5ca0d0a0; */
+  box-sizing: border-box;
+  padding: 0 20px;
 }
+
+/* .chest:not(.swap-card-style-color) {
+  pointer-events: none;
+} */
+
+/* .swap-card-style-color~.chest {
+  pointer-events: none;
+} */
+
+.chest p {
+  opacity: 0;
+}
+
+.swap-card-style {
+  transform: scaleY(0);
+}
+
+.swap-card-style-color {
+  background-image: none;
+  background-color: #5ca0d0;
+}
+
+.swap-card-style-pointer {
+  pointer-events: none;
+}
+
+.swap-card-style-color p {
+  opacity: 1;
+}
+
+/* .chest p{
+  opacity: 0;
+} */

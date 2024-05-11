@@ -114,6 +114,10 @@ function App() {
     setCardPopUpShow(false);
   }
 
+  function closeChestPopUp() {
+    setChestPopUpShow(false);
+  }
+
   return (
     <div className="App">
       <div className="game-info">
@@ -215,11 +219,9 @@ function App() {
         ></PopUp>
       )}
 
-      {chestPopUpShow && 
-      <ChestPopUp>
+      {chestPopUpShow && <ChestPopUp closeChestPopUp={closeChestPopUp}>
         
-        </ChestPopUp>
-        }
+        </ChestPopUp>}
     </div>
   );
 }
