@@ -12,7 +12,7 @@ import dice5 from "./img/dice5.png";
 import dice6 from "./img/dice6.png";
 import "./App.css";
 // @ts-ignore
-import { cardsDB, usersDB } from "./db";
+import { cardsDB, usersDB,chestDB, chanceDB } from "./db";
 import { useEffect, useState } from "react";
 
 function App() {

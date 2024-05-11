@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+// import { cardsDB, usersDB, chestDB, chanceDB } from "src/db.js";
 
-const ChestPopUp = ({closeChestPopUp  }) => {
+const ChestPopUp = ({ closeChestPopUp, chenceDB }) => {
   const [chests, setChests] = useState([
     "Перейдите на поле вперед и получите 200 монет.",
     "Перейдите на ближайшую ЖД. Если она не занята - вы можете ее купить.",
@@ -40,13 +41,15 @@ const ChestPopUp = ({closeChestPopUp  }) => {
             </div>
           ))}
         </div>
-        <button
-          type="button"
-          onClick={() => closeChestPopUp()}
-          className={swapCardColor != null ? "" : "swap-card-style-pointer"}
-        >
-          OK
-        </button>
+        <div className="button-block">
+          <button
+            type="button"
+            onClick={() => closeChestPopUp()}
+            className={swapCardColor != null ? "" : "swap-card-style-pointer"}
+          >
+            OK
+          </button>
+        </div>
       </form>
     </div>
   );
