@@ -12,7 +12,7 @@ import dice5 from "./img/dice5.png";
 import dice6 from "./img/dice6.png";
 import "./App.css";
 // @ts-ignore
-import { cardsDB, usersDB,chestDB, chanceDB } from "./db";
+import { cardsDB, usersDB, chestDB } from "./db";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
   const [numDice, setNumDice] = useState(10);
   const [cardPopUpShow, setCardPopUpShow] = useState(false);
   const [chestPopUpShow, setChestPopUpShow] = useState(false);
+  const [chests, setChests] = useState(chestDB.splice(0, 4));
   const [dices, setDices] = useState([
     Math.floor(Math.random() * 6),
     Math.floor(Math.random() * 6),
@@ -114,8 +115,18 @@ function App() {
     setCardPopUpShow(false);
   }
 
-  function closeChestPopUp() {
+  function closeChestPopUp(chestId) {
     setChestPopUpShow(false);
+    console.log(chestId);
+    if (chests[chestId].money) {
+      setUsers((u) => {
+        let nextUsers = u;
+        nextUsers[0].money = nextUsers[0].money + chests[chestId].money;
+        return nextUsers;
+      });
+    } else {
+      setChestPopUpShow(false);
+    }
   }
 
   return (
@@ -125,7 +136,7 @@ function App() {
           {users.map((el, index) => (
             <li>
               <a href="" className="player-name">
-                {el.name}
+                {el.name + " " + el.money + " монет"}
               </a>
               <nav className="game-info-nav">
                 {cards.map((c, cardIndex) =>
@@ -219,9 +230,12 @@ function App() {
         ></PopUp>
       )}
 
-      {chestPopUpShow && <ChestPopUp closeChestPopUp={closeChestPopUp}>
-        
-        </ChestPopUp>}
+      {chestPopUpShow && (
+        <ChestPopUp
+          closeChestPopUp={closeChestPopUp}
+          chests={chests}
+        ></ChestPopUp>
+      )}
     </div>
   );
 }

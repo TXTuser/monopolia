@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PopUp = ({cardPopUpShow, streetName, price, buyCard, deniedCard, chance, chest}) => {
+const PopUp = ({cardPopUpShow, streetName, price, buyCard, deniedCard, }) => {
     
     return (
         <div className='popUp' style={{display:cardPopUpShow?'flex':'none'}}>

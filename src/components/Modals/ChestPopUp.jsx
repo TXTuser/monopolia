@@ -1,15 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { chanceDB, chestDB } from "../../db";
 // import { cardsDB, usersDB, chestDB, chanceDB } from "src/db.js";
 
-const ChestPopUp = ({ closeChestPopUp, chenceDB }) => {
-  const [chests, setChests] = useState([
-    "Перейдите на поле вперед и получите 200 монет.",
-    "Перейдите на ближайшую ЖД. Если она не занята - вы можете ее купить.",
-    "Перейдиет на улицу Арбат.",
-    "Перейдите на ближайшее предприятие. Если оно не занято - вы можете его купить.",
-  ]);
-  const [swapCardId, setSwapCardId] = useState(null);
+const ChestPopUp = ({ closeChestPopUp, chests }) => {
+  // const [chests, setChests] = useState(chestDB.sort(()=> Math.random() - 0.5).splice(8, chestDB.length-1));
+  const [chest, setChest] = useState(null)
+  // const [chests, setChests] = useState(chestDB);
+  const [chance, setChance] = useState(chanceDB);
+  const [swapCardId, setSwapCardId] = useState();
   const [swapCardColor, setSwapCardColor] = useState(null);
 
   function swapCard(id) {
@@ -37,14 +36,14 @@ const ChestPopUp = ({ closeChestPopUp, chenceDB }) => {
               }
               onClick={() => swapCard(id)}
             >
-              <p>{el}</p>
+              <p>{el.title}</p>
             </div>
           ))}
         </div>
         <div className="button-block">
           <button
             type="button"
-            onClick={() => closeChestPopUp()}
+            onClick={() => closeChestPopUp(swapCardColor)}
             className={swapCardColor != null ? "" : "swap-card-style-pointer"}
           >
             OK
